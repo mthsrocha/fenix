@@ -10,7 +10,7 @@ import (
 
 
 func IndexWalletTemplate(w http.ResponseWriter, r *http.Request) {
-	all_wallets := models.SearchAllWallets()
+	all_wallets := models.SelectAllWallets()
 	temp.ExecuteTemplate(w, "IndexWallet", all_wallets)
 }
 
@@ -20,7 +20,7 @@ func NewWalletTemplate(w http.ResponseWriter, r *http.Request) {
 
 func UpdateWalletTemplate(w http.ResponseWriter, r *http.Request) {
 	wallet_id := r.URL.Query().Get("id")
-	get_wallet := models.SearchWallet(wallet_id)
+	get_wallet := models.SelectWallet(wallet_id)
 	temp.ExecuteTemplate(w, "UpdateWallet", get_wallet)
 }
 

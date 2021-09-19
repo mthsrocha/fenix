@@ -20,7 +20,7 @@ type Wallet struct {
 	UpdatedAt  string
 }
 
-func SearchAllWallets() []Wallet {
+func SelectAllWallets() []Wallet {
 	db := database.ConnectDB()
 
 	select_all_wallets := "select * from wallets"
@@ -106,7 +106,7 @@ func UpdateWallet(username string, crypto_tag string, crypto_name string, hash s
 	defer update_db.Close()
 }
 
-func SearchWallet(id string) Wallet {
+func SelectWallet(id string) Wallet {
 	db := database.ConnectDB()
 
 	var userName, asset_tag, asset_name, hash, createdAt, updatedAt string

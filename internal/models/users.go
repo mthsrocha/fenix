@@ -5,7 +5,7 @@ import (
 
 )
 
-type Users struct {
+type User struct {
 	Id			int64
 	Email 		string
 	password	string
@@ -22,4 +22,24 @@ func InsertUser() {
 
 }
 
-func SelectAllUsers()
+func SelectUser() User {
+	user := User{}
+
+	
+	return user
+}
+
+func SelectAllUsers() []User {
+	
+	users := []User{}
+
+	return users
+}
+
+func UpdateUser() {
+
+}
+
+func DeleteUser() {
+	
+}

@@ -6,6 +6,7 @@ import (
 )
 
 func HttpServer() {
+	handlers.HomeHandlers()
 	handlers.Handlers()
 	http.ListenAndServe(":8000", nil)
 }

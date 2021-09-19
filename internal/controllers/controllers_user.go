@@ -12,6 +12,10 @@ func RegisterUserTemplate(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func EditUserTemplate(w http.ResponseWriter, r *http.Request) {
+
+}
+
 func CreateUser(w http.ResponseWriter, r *http.Request) {
 
 }
@@ -29,5 +33,9 @@ func SearchAllUsers(w http.ResponseWriter, r *http.Request) {
 }
 
 func LoginUser(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func DeleteUser(w http.ResponseWriter, r *http.Request) {
 
 }
