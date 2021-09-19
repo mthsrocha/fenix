@@ -1,0 +1,56 @@
+{{define "NewWallet"}}
+
+{{template "_header"}}
+{{template "_menu_bar"}}
+<div class="container">
+
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-5">New Asset</h1>
+                <p class="lead">Details:</p>
+            </div>
+        </div>
+        <form method="POST" action="/wallet/insert/">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="user">UserName:</label>
+                        <input type="text" name="user" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="asset">Crypto:</label>
+                        <input type="text" name="asset" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="hash">Hash:</label>
+                        <input type="text" name="hash" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="balance">Balance:</label>
+                        <input type="number" name="balance" class="form-control" step="0.01">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" value="save" class="btn btn-success">Save</button>
+            <a class="btn btn-info" href="/">Back</a>
+        </form>
+    </body>
+
+</div>
+</body>
+
+</html>
+{{end}}
