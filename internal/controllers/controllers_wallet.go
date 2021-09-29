@@ -26,6 +26,7 @@ func UpdateWalletTemplate(w http.ResponseWriter, r *http.Request) {
 
 func CreateWallet(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
+		userId := r.URL.Query().Get("userid")
 		username := r.FormValue("user")
 		crypto_tag := r.FormValue("asset")
 		hash := r.FormValue("hash")
@@ -48,8 +49,9 @@ func CreateWallet(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Println(err)
 		}
+		user_id_int, err := strconv.ParseInt(userId, 10, 64)
 
-		models.InsertWallet(username, crypto_tag, crypto_name, hash, balance_float)
+		models.InsertWallet(user_id_int, username, crypto_tag, crypto_name, hash, balance_float)
 	}
 	http.Redirect(w, r, "/", 301)
 }

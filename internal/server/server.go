@@ -5,6 +5,11 @@ import (
 	"github.com/Fenix/internal/handlers"
 )
 
+type Server struct {
+	
+}
+
+
 func HttpServer() {
 	handlers.HomeHandlers()
 	handlers.Handlers()

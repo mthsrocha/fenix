@@ -6,8 +6,8 @@ services:
         ports:
         - 5432:5432
         environment:
-            POSTGRES_DB: 'mak'
+            POSTGRES_DB: 'uchiha'
             POSTGRES_USER: 'root'
             POSTGRES_PASSWORD: 'root'
 
-        container_name: mak_db
+        container_name: uchiha_db
