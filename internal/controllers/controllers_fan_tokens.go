@@ -1,9 +1,14 @@
 package controllers
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/Fenix/internal/api"
+)
 
 func FanTokensPricesTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeFanTokensPrices", nil)
+	values := api.GetAllRealTimeValueAssets(api.GetFanTokens())
+	temp.ExecuteTemplate(w, "HomeFanTokensPrices", values)
 }
 
 func FanTokensOthersTemplate(w http.ResponseWriter, r *http.Request) {

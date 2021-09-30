@@ -2,6 +2,8 @@ package controllers
 
 import (
 	"net/http"
+
+	"github.com/Fenix/internal/api"
 )
 
 func CriptocoinsPricesTemplate(w http.ResponseWriter, r *http.Request) {
@@ -17,25 +19,31 @@ func CriptocoinsAboutTemplate(w http.ResponseWriter, r *http.Request) {
 }
 
 func CriptocoinsBTCTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeCriptocoinsBTC", nil)
+	value := api.GetRealTimeAsset("BTC")
+	temp.ExecuteTemplate(w, "HomeCriptocoinsBTC", value)
 }
 
 func CriptocoinsBCHTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeCriptocoinsBCH", nil)
+	value := api.GetRealTimeAsset("BCH")
+	temp.ExecuteTemplate(w, "HomeCriptocoinsBCH", value)
 }
 
 func CriptocoinsETHTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeCriptocoinsETH", nil)
+	value := api.GetRealTimeAsset("ETH")
+	temp.ExecuteTemplate(w, "HomeCriptocoinsETH", value)
 }
 
 func CriptocoinsLTCTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeCriptocoinsLTC", nil)
+	value := api.GetRealTimeAsset("LTC")
+	temp.ExecuteTemplate(w, "HomeCriptocoinsLTC", value)
 }
 
 func CriptocoinsPAXGTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeCriptocoinsPAXG", nil)
+	value := api.GetRealTimeAsset("PAXG")
+	temp.ExecuteTemplate(w, "HomeCriptocoinsPAXG", value)
 }
 
 func CriptocoinsXRPTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeCriptocoinsXRP", nil)
+	value := api.GetRealTimeAsset("XRP")
+	temp.ExecuteTemplate(w, "HomeCriptocoinsXRP", value)
 }

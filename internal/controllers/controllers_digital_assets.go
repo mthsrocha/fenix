@@ -1,9 +1,14 @@
 package controllers
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/Fenix/internal/api"
+)
 
 func DigitalAssetsPricesTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeDigitalAssetsPrices", nil)
+	values := api.GetAllRealTimeValueAssets(api.GetDigitalAssets())
+	temp.ExecuteTemplate(w, "HomeDigitalAssetsPrices", values)
 }
 
 func DigitalAssetsOthersTemplate(w http.ResponseWriter, r *http.Request) {
@@ -15,17 +20,21 @@ func DigitalAssetsAboutTemplate(w http.ResponseWriter, r *http.Request) {
 }
 
 func DigitalAssetsMBCONS01Template(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeDigitalAssetsCONS01", nil)
+	value := api.GetRealTimeAsset("MBCONS01")
+	temp.ExecuteTemplate(w, "HomeDigitalAssetsCONS01", value)
 }
 
 func DigitalAssetsMBPRK01Template(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeDigitalAssetsPRK01", nil)
+	value := api.GetRealTimeAsset("MBPRK01")
+	temp.ExecuteTemplate(w, "HomeDigitalAssetsPRK01", value)
 }
 
 func DigitalAssetsMBPRK03Template(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeDigitalAssetsPRK03", nil)
+	value := api.GetRealTimeAsset("MBPRK03")
+	temp.ExecuteTemplate(w, "HomeDigitalAssetsPRK03", value)
 }
 
 func DigitalAssetsMBPRK04Template(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeDigitalAssetsPRK04", nil)
+	value := api.GetRealTimeAsset("MBPRK04")
+	temp.ExecuteTemplate(w, "HomeDigitalAssetsPRK04", value)
 }

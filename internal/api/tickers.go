@@ -20,73 +20,10 @@ type TickerResponse struct {
 	} `json:"ticker"`
 }
 
-var assets = []string{
-	"BITCOIN",
-    "REAL",
-    "LITECOIN",
-    "STELLAR",
-    "BCASH",
-    "ETHEREUM",
-    "BGOLD",
-    "RIPPLE",
-    "BSV",
-    "USDC",
-    "WIBX",
-    "CHILIZ",
-    "PAXGOLD",
-    "LINK",
-    "MCO2",
-    "AAVE",
-    "BAL",
-    "COMP",
-    "CRV",
-    "DAI",
-    "KNC",
-    "MKR",
-    "REN",
-    "SNX",
-    "UMA",
-    "UNI",
-    "YFI",
-    "ZRX",
-    "AXS",
-    "BAT",
-    "ENJ",
-    "GRT",
-    "MANA",
-    "SUSHI",
-    "MATIC",
-    "OMG",
-    "WBTC",
-    "ANKR",
-    "BAND",
-    "BNT",
-    "ADA",
-    "PSGFT",
-    "BARFT",
-    "JUVFT",
-    "ASRFT",
-    "ATMFT",
-    "GALFT",
-    "CAIFT",
-    "ACMFT",
-    "OGFT",
-    "ALLFT",
-    "NAVIFT",
-    "THFT",
-    "PFLFT",
-    "CITYFT",
-    "ARGFT",
-    "AMFT",
-    "SAUBERFT",
-    "SCCPFT",
-    "YBOFT",
-    "GALOFT",
-}
-
 func GetRealTimeAsset(asset string) TickerResponse {
 	response_obj := TickerResponse{}
 	api_url := "https://www.mercadobitcoin.net/api/" + asset + "/ticker/"
+
 	response, err := http.Get(api_url)
 	CheckError(err)
 
@@ -98,11 +35,11 @@ func GetRealTimeAsset(asset string) TickerResponse {
 	return response_obj
 }
 
-func GetAllRealTimeValueAssets() []TickerResponse {
+func GetAllRealTimeValueAssets(asset_list []string) []TickerResponse {
 	ticker := TickerResponse{}
 	all_tickers := []TickerResponse{}
 
-	for _, asset := range(assets) {
+	for _, asset := range asset_list {
 		api_url := "https://www.mercadobitcoin.net/api/" + asset + "/ticker/"
 		response, err := http.Get(api_url)
 		CheckError(err)
@@ -114,6 +51,7 @@ func GetAllRealTimeValueAssets() []TickerResponse {
 			log.Fatal(err)
 		}
 		all_tickers = append(all_tickers, ticker)
+        fmt.Println(asset)
 		fmt.Println(ticker.Ticker.Last)
 	}
 
@@ -122,6 +60,6 @@ func GetAllRealTimeValueAssets() []TickerResponse {
 
 func CheckError(err error) {
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 }
