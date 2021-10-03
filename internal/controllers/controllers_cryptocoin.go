@@ -7,7 +7,8 @@ import (
 )
 
 func CriptocoinsPricesTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "HomeCriptocoinsPrices", nil)
+	values := api.GetAllRealTimeValueAssets(api.GetCryptos())
+	temp.ExecuteTemplate(w, "HomeCriptocoinsPrices", values)
 }
 
 func CriptocoinsOthersTemplate(w http.ResponseWriter, r *http.Request) {

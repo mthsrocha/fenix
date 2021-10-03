@@ -19,7 +19,7 @@ type Asset struct {
 func InsertAsset(walletId int64, tag string, name string, balance float64) {
 	db := database.ConnectDB()
 
-	insert_asset_script := "INSERT INTO assets(tag, name, balance) VALUES($1, $2, $3)"
+	insert_asset_script := "INSERT INTO assets(walletid, tag, name, balance) VALUES($1, $2, $3, $4)"
 	insert_asset_db, err := db.Prepare(insert_asset_script)
 	if err != nil {
 		log.Println(err)
