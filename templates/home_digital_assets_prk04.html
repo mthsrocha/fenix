@@ -3,7 +3,7 @@
 {{template "_header"}}
 <body>
 {{template "_menu_top_bar"}}
-  
+
 <div class="container">
   <h1><b>Bitcoin</b></h1>
 </div>
@@ -28,22 +28,22 @@
           <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbprk04-color.svg"></td>
           <td>Precaório MB RJ04</td>
           <td>MBPRK04</td>
-          <td>value</td>
-          <td>Lower Price</td>
-          <td>Higher Price</td>
-          <td>Volume Traded</td>
-          <td>Higher buy offer</td>
-          <td>Lower sell offer</td>         
+          <td>{{.Ticker.Last}}</td>
+          <td>{{.Ticker.Low}}</td>
+          <td>{{.Ticker.High}}</td>
+          <td>{{.Ticker.Vol}}</td>
+          <td>{{.Ticker.Buy}}</td>
+          <td>{{.Ticker.Sell}}</td>
         </tr>
       </tbody>
     </table>
-    
+
     <p style="text-align: right;"><br>Information about last 24 hours</p>
 
     <p style="text-align: right;">Desenvolvido por Matheus Rocha</p>
 
   </div>
-  
+
 
 </body>
 </html>

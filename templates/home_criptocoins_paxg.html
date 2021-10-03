@@ -3,10 +3,10 @@
 {{template "_header"}}
 <body>
 {{template "_menu_top_bar"}}
-  
+
 <div class="container">
   <h1><b>Pax Gold</b></h1>
-</div> 
+</div>
 
 <div  class="text-center">
   <img src="https://www.mercadobitcoin.com.br/resources/img/landing/modules/media/logo_pax.png" width="284" height="195" class="roundend">
@@ -35,12 +35,12 @@
         <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-btc-color.svg" ></td>
         <td>PAX Gold</td>
         <td>PAXG</td>
-        <td>value</td>
-        <td>Lower Price</td>
-        <td>Higher Price</td>
-        <td>Volume Traded</td>
-        <td>Higher buy offer</td>
-        <td>Lower sell offer</td>         
+        <td>{{.Ticker.Last}}</td>
+        <td>{{.Ticker.Low}}</td>
+        <td>{{.Ticker.High}}</td>
+        <td>{{.Ticker.Vol}}</td>
+        <td>{{.Ticker.Buy}}</td>
+        <td>{{.Ticker.Sell}}</td>
       </tr>
     </tbody>
   </table>
@@ -51,9 +51,9 @@
   <p>O PAXG é totalmente lastreado em ouro físico, mantido nos cofres mais seguros do mundo. Uma firma de auditoria renomada que atesta mensalmente que o lastro de ouro físico corresponde à quantidade emitida de tokens PAXG.</p>
   <p>A Paxos garante aos detentores de tokens devidamente aprovados em seu processo de Conheça seu Cliente (KYC) o direito de resgatar, a qualquer momento, a quantia em ouro equivalente.</p>
   <p><br></p>
-  
+
   <p style="text-align: right;">Desenvolvido por Matheus Rocha</p>
-  
+
 </div>
 
 

@@ -3,7 +3,7 @@
 {{template "_header"}}
 <body>
 {{template "_menu_top_bar"}}
-  
+
 <div class="container">
   <h1><b>XRP (Ripple)</b></h1>
 </div>
@@ -33,22 +33,22 @@
         <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-xrp-color.svg" ></td>
         <td>XRP</td>
         <td>XRP</td>
-        <td>value</td>
-        <td>Lower Price</td>
-        <td>Higher Price</td>
-        <td>Volume Traded</td>
-        <td>Higher buy offer</td>
-        <td>Lower sell offer</td>         
+        <td>{{.Ticker.Last}}</td>
+        <td>{{.Ticker.Low}}</td>
+        <td>{{.Ticker.High}}</td>
+        <td>{{.Ticker.Vol}}</td>
+        <td>{{.Ticker.Buy}}</td>
+        <td>{{.Ticker.Sell}}</td>
       </tr>
     </tbody>
   </table>
-  
+
   <p style="text-align: right;"><br>Information about last 24 hours</p>
-  
+
   <h3>O que é o XRP (Ripple)?</h3>
   <p>O XRP é um ativo digital para pagamento. Assim como o bitcoin, o XRP é uma tecnologia de código aberto, construída sobre os princípios do blockchain.</p>
   <p><br></p>
-  
+
   <h3>Conheça a Ripple</h3>
   <p>Ripple é uma empresa de serviços financeiros que oferece soluções inspiradas em blockchain para tornar a transferência global de dinheiro mais rápida e segura.</p>
   <br>
@@ -56,11 +56,11 @@
     <img src="https://www.mercadobitcoin.com.br/resources/img/landing/xrp/pic-ripple-office@2x.jpg" class="roundend">
     <p></p>
   </div>
-  
+
   <p><br></p>
-  
+
   <p style="text-align: right;">Desenvolvido por Matheus Rocha</p>
-  
+
 </div>
 
 
