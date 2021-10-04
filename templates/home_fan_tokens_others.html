@@ -3,7 +3,7 @@
 {{template "_header"}}
 <body>
 {{template "_menu_top_bar"}}
-  
+
 <div class="container">
   <h1><b>Welcome to myWallet!</b></h1>
 </div>
@@ -28,23 +28,23 @@
           <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-pflft-color.svg"></td>
           <td>Professional Fighters League Fan Token</td>
           <td>PFL</td>
-          <td>value</td>
-          <td>Lower Price</td>
-          <td>Higher Price</td>
-          <td>Volume Traded</td>
-          <td>Higher buy offer</td>
-          <td>Lower sell offer</td>         
+          <td>{{ (index . 0).Ticker.Last}}</td>
+          <td>{{ (index . 0).Ticker.Low}}</td>
+          <td>{{ (index . 0).Ticker.High}}</td>
+          <td>{{ (index . 0).Ticker.Vol}}</td>
+          <td>{{ (index . 0).Ticker.Buy}}</td>
+          <td>{{ (index . 0).Ticker.Sell}}</td>
         </tr>
 
       </tbody>
     </table>
-    
+
     <p style="text-align: right;"><br>Information about last 24 hours</p>
 
     <p style="text-align: right;">Desenvolvido por Matheus Rocha</p>
 
   </div>
-  
+
 
 </body>
 </html>

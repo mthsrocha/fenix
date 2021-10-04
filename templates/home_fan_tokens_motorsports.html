@@ -3,7 +3,7 @@
 {{template "_header"}}
 <body>
 {{template "_menu_top_bar"}}
-  
+
 <div class="container">
   <h1><b>Motorsport Fan Tokens</b></h1>
 </div>
@@ -28,34 +28,34 @@
           <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-sauberft-color.svg" width="24" height="24"></td>
           <td>Alfa Romeo Racing Fan Token</td>
           <td>SAUBER</td>
-          <td>value</td>
-          <td>Lower Price</td>
-          <td>Higher Price</td>
-          <td>Volume Traded</td>
-          <td>Higher buy offer</td>
-          <td>Lower sell offer</td>         
+          <td>{{ (index . 0).Ticker.Last}}</td>
+          <td>{{ (index . 0).Ticker.Low}}</td>
+          <td>{{ (index . 0).Ticker.High}}</td>
+          <td>{{ (index . 0).Ticker.Vol}}</td>
+          <td>{{ (index . 0).Ticker.Buy}}</td>
+          <td>{{ (index . 0).Ticker.Sell}}</td>
         </tr>
 
         <tr>
           <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-amft-color.svg"></td>
           <td>Aston Martin Cognizant Fan Token</td>
           <td>AM</td>
-          <td>value</td>
-          <td>Lower Price</td>
-          <td>Higher Price</td>
-          <td>Volume Traded</td>
-          <td>Higher buy offer</td>
-          <td>Lower sell offer</td>         
+          <td>{{ (index . 1).Ticker.Last}}</td>
+          <td>{{ (index . 1).Ticker.Low}}</td>
+          <td>{{ (index . 1).Ticker.High}}</td>
+          <td>{{ (index . 1).Ticker.Vol}}</td>
+          <td>{{ (index . 1).Ticker.Buy}}</td>
+          <td>{{ (index . 1).Ticker.Sell}}</td>
         </tr>
       </tbody>
     </table>
-    
+
     <p style="text-align: right;"><br>Information about last 24 hours</p>
 
     <p style="text-align: right;">Desenvolvido por Matheus Rocha</p>
 
   </div>
-  
+
 
 </body>
 </html>

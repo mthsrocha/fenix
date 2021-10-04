@@ -3,7 +3,7 @@
 {{template "_header"}}
 <body>
 {{template "_menu_top_bar"}}
-  
+
 <div class="container">
   <h1><b>Welcome to myWallet!</b></h1>
 </div>
@@ -21,62 +21,62 @@
       </thead>
       <tbody>
         <tr>
-          <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbcons01-color.svg" ></td>
-          <td>Cota de Consórcio</td>
-          <td>MBCONS01</td>
-          <td>value</td>
+            <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbvasco01-color.svg" width="24" height="24"></td>
+            <td>Vasco Token</td>
+            <td>MBVASCO01</td>
+            <td>{{ (index . 7).Ticker.Last}}</td>
         </tr>
         <tr>
           <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbcons02-color.svg" width="24" height="24"></td>
           <td>Cota de Consórcio 2</td>
           <td>MBCONS02</td>
-          <td>value</td>
+          <td>{{ (index . 1).Ticker.Last}}</td>
         </tr>
         <tr>
           <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbprk01-color.svg"></td>
           <td>Precaório MB SP01</td>
           <td>MBPRK01</td>
-          <td>value</td>
+          <td>{{ (index . 2).Ticker.Last}}</td>
         </tr>
         <tr>
             <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbprk02-color.svg"></td>
             <td>Precaório MB SP02</td>
             <td>MBPRK02</td>
-            <td>value</td>
+            <td>{{ (index . 3).Ticker.Last}}</td>
         </tr>
         <tr>
             <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbprk03-color.svg"></td>
             <td>Precaório MB BR03</td>
             <td>MBPRK03</td>
-            <td>value</td>
+            <td>{{ (index . 4).Ticker.Last}}</td>
         </tr>
         <tr>
             <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbprk04-color.svg"></td>
             <td>Precaório MB RJ04</td>
             <td>MBPRK04</td>
-            <td>value</td>
+            <td>{{ (index . 5).Ticker.Last}}</td>
         </tr>
         <tr>
             <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbprk05-color.svg"></td>
             <td>Precaório MB SP05</td>
             <td>MBPRK05</td>
-            <td>value</td>
+            <td>{{ (index . 6).Ticker.Last}}</td>
         </tr>
         <tr>
-            <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbvasco01-color.svg" width="24" height="24"></td>
-            <td>Vasco Token</td>
-            <td>MBVASCO01</td>
-            <td>value</td>
+          <td><img src="https://www.mercadobitcoin.com.br/resources/assets/v2/img/icons/assets/ico-mbcons01-color.svg" ></td>
+          <td>Cota de Consórcio</td>
+          <td>MBCONS01</td>
+          <td>{{ (index . 0).Ticker.Last}}</td>
         </tr>
 
       </tbody>
     </table>
     <p>Based in last transaction on MercadoBitcoin</p>
-    
+
     <p style="text-align: right;">Desenvolvido por Matheus Rocha</p>
 
   </div>
-  
+
 
 </body>
 </html>
