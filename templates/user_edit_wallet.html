@@ -1,0 +1,43 @@
+{{define "EditWallet"}}
+
+{{template "_header"}}
+{{template "_menu_top_bar_logged"}}
+
+<div class="container">
+
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-5">Edit Wallet</h1>
+                <p class="lead">Details:</p>
+            </div>
+        </div>
+        <form method="POST" action="/user/wallet/update/?id={{ .Id }}">
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="hash">Hash:</label>
+                        <input type="text" name="hash" class="form-control" placeholder="{{.Hash}}">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" value="save" class="btn btn-success">Update</button>
+            <a class="btn btn-info" href="/">Back</a>
+        </form>
+    </body>
+
+</div>
+</body>
+<footer>
+    <div>
+        <p>
+            <br><br>
+        </p>
+    </div>
+</footer>
+
+</html>
+
+{{end}}

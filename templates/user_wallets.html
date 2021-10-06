@@ -1,0 +1,50 @@
+{{define "IndexWallets"}}
+
+{{template "_header"}}
+{{template "_menu_top_bar_logged"}}
+<body>
+    <div class="container">
+        <section class="card">
+            <div>
+                <table class="table table-striped table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Hash</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range .}}
+                        <tr>
+                            <td>{{.Hash}}</td>
+                            <td>{{.CreatedAt}}</td>
+                            <td>{{.UpdatedAt}}</td>
+                            <td><a href="/user/wallet/info/?id={{.Id}}" class="btn btn-success">Acess</a></td>
+                            <td><a href="/user/wallet/edit/?id={{.Id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                            <td><a onclick="onDelete('{{.Id}}')"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div>
+            <a href="/user/wallet/new/" class="btn btn-primary my-3">New</a>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    function onDelete(id) {
+        let response = confirm("Do you really want to delete wallet?")
+        if (response) {
+            window.location = "/user/wallet/asset/delete/?id=" + id
+        }
+    }
+
+</script>
+
+</html>
+{{end}}
