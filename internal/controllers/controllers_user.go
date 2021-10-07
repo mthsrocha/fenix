@@ -7,7 +7,7 @@ import (
 )
 
 func IndexUserTemplate(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "IndexWallet", nil)
+	temp.ExecuteTemplate(w, "IndexUserHome", nil)
 }
 
 func RegisterUserTemplate(w http.ResponseWriter, r *http.Request) {
@@ -42,7 +42,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
-	
+
 }
 
 func SearchUser(w http.ResponseWriter, r *http.Request) {

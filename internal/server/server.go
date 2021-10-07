@@ -6,12 +6,14 @@ import (
 )
 
 type Server struct {
-	
+
 }
 
 
 func HttpServer() {
 	handlers.HomeHandlers()
+	handlers.AuthHandlers()
+	handlers.UserHandlers()
 	handlers.Handlers()
 	http.ListenAndServe(":8000", nil)
 }

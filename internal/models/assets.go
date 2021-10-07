@@ -11,7 +11,7 @@ import (
 type Asset struct {
 	Id       int64
 	WalletId int64
-	Tag      string
+	Symbol      string
 	Name     string
 	Balance  float64
 }
@@ -49,7 +49,7 @@ func SelectAssetById(id string) Asset {
 	}
 
 	asset.Id = id_converted
-	asset.Tag = tag
+	asset.Symbol = tag
 	asset.Name = name
 	asset.Balance = balance
 
@@ -75,7 +75,7 @@ func SelectAssetByTag(tag string) Asset {
 	}
 
 	asset.Id = id
-	asset.Tag = tag
+	asset.Symbol = tag
 	asset.Name = name
 	asset.Balance = balance
 
@@ -108,7 +108,7 @@ func SelectAllAssetByWalletId(id string) []Asset {
 		id_converted, err := strconv.ParseInt(id, 10, 64)
 		asset.Id = id_converted
 		asset.WalletId = walletId
-		asset.Tag = tag
+		asset.Symbol = tag
 		asset.Name = name
 		asset.Balance = balance
 

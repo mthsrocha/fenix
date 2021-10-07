@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -8,62 +9,102 @@ import (
 	"github.com/Fenix/internal/models"
 )
 
+type ResponseWallet struct {
+	UserId    int64
+	WalletId  int64
+	AssetId   int64
+	Symbol    string
+	Name      string
+	Balance   float64
+	Avarage   float64
+	Hash      string
+	CreatedAt string
+	UpdatedAt string
+}
 
 func IndexWalletTemplate(w http.ResponseWriter, r *http.Request) {
 	all_wallets := models.SelectAllWallets()
-	temp.ExecuteTemplate(w, "IndexWallet", all_wallets)
+	temp.ExecuteTemplate(w, "IndexWallets", all_wallets)
+}
+
+func WalletInfoTemplate(w http.ResponseWriter, r *http.Request) {
+	response_obj := ResponseWallet{}
+	response := []ResponseWallet{}
+	walletid := r.URL.Query().Get("id")
+	wallet := models.SelectWallet(walletid)
+	assets := models.SelectAllAssetByWalletId(walletid)
+
+	if len(assets) > 0 {
+		for _, asset := range assets {
+			response_obj.AssetId = asset.Id
+			response_obj.WalletId = wallet.Id
+			response_obj.Symbol = asset.Symbol
+			response_obj.Balance = asset.Balance
+			response_obj.Hash = wallet.Hash
+			response_obj.CreatedAt = wallet.CreatedAt
+			response_obj.UpdatedAt = wallet.UpdatedAt
+
+			response = append(response, response_obj)
+		}
+	} else {
+		response_obj.WalletId = wallet.Id
+		response_obj.Hash = wallet.Hash
+		response = append(response, response_obj)
+	}
+
+	temp.ExecuteTemplate(w, "WalletInfo", response)
 }
 
 func NewWalletTemplate(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "NewWallet", nil)
 }
 
-func UpdateWalletTemplate(w http.ResponseWriter, r *http.Request) {
+func EditWalletTemplate(w http.ResponseWriter, r *http.Request) {
 	wallet_id := r.URL.Query().Get("id")
 	get_wallet := models.SelectWallet(wallet_id)
-	temp.ExecuteTemplate(w, "UpdateWallet", get_wallet)
+	fmt.Println(get_wallet)
+	temp.ExecuteTemplate(w, "EditWallet", get_wallet)
 }
 
 func CreateWallet(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
-		userId := r.URL.Query().Get("userid")
-		username := r.FormValue("user")
-		crypto_tag := r.FormValue("asset")
+		userId := r.FormValue("userId")
 		hash := r.FormValue("hash")
-		balance := r.FormValue("balance")
-		var crypto_name string
-		if crypto_tag == "BTC" {
-			crypto_name = "Bitcoin"
-		}
-		if crypto_tag == "ETH" {
-			crypto_name = "Etherium"
-		}
-		if crypto_tag == "CHZ" {
-			crypto_name = "Chiliz"
-		}
-		if crypto_tag == "XRP" {
-			crypto_name = "Ripple"
-		}
 
-		balance_float, err := strconv.ParseFloat(balance, 64)
+		user_id_int, err := strconv.ParseInt(userId, 10, 64)
 		if err != nil {
 			log.Println(err)
 		}
-		user_id_int, err := strconv.ParseInt(userId, 10, 64)
 
-		models.InsertWallet(user_id_int, username, crypto_tag, crypto_name, hash, balance_float)
+		models.InsertWallet(user_id_int, hash)
 	}
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/user/home/", 301)
 }
 
 func DeleteWallet(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 
 	models.DeleteWallet(id)
-	http.Redirect(w, r, "/", 301)
-	
+	http.Redirect(w, r, "/user/home/", 301)
+
 }
 
 func UpdateWallet(w http.ResponseWriter, r *http.Request) {
-	
+	id := r.URL.Query().Get("id")
+	hash := r.FormValue("hash")
+
+	models.UpdateWallet(hash, id)
+	http.Redirect(w, r, "/user/wallets/", 301)
+}
+
+func CreateWalletByCookie(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		//		session := GetSession(w, r)
+		//		email := session.Values["userEmail"]
+		userId := models.SelectUserId("")
+		hash := r.FormValue("hash")
+
+		models.InsertWallet(userId, hash)
+	}
+	http.Redirect(w, r, "/user/home", 301)
 }

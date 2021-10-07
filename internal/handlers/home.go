@@ -7,7 +7,7 @@ import (
 )
 
 func HomeHandlers() {
-
+	http.HandleFunc("/", controllers.HomeTemplate)
 	http.HandleFunc("/home/", controllers.HomeTemplate)
 
 	http.HandleFunc("/home/cryptocoins/prices/", controllers.CriptocoinsPricesTemplate)
