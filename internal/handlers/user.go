@@ -29,7 +29,7 @@ func UserHandlers() {
 	http.HandleFunc("/user/wallet/asset/new/", controllers.NewAssetTemplate)
 	http.HandleFunc("/user/wallet/asset/edit/", controllers.EditAssetTemplate)
 	http.HandleFunc("/user/wallet/asset/update/", controllers.UpdateAsset)
-	http.HandleFunc("/user/wallet/asset/insert/", controllers.CreateWallet)
-	http.HandleFunc("/user/wallet/asset/delete/", controllers.DeleteWallet)
+	http.HandleFunc("/user/wallet/asset/insert/", controllers.CreateAsset)
+	http.HandleFunc("/user/wallet/asset/delete/", controllers.DeleteAsset)
 
 }

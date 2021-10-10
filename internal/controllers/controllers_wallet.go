@@ -14,7 +14,7 @@ type ResponseWallet struct {
 	WalletId  int64
 	AssetId   int64
 	Symbol    string
-	Name      string
+	AssetName  string
 	Balance   float64
 	Avarage   float64
 	Hash      string
@@ -40,6 +40,8 @@ func WalletInfoTemplate(w http.ResponseWriter, r *http.Request) {
 			response_obj.WalletId = wallet.Id
 			response_obj.Symbol = asset.Symbol
 			response_obj.Balance = asset.Balance
+			// Alterar avarage de acordo com a cotaçao do asset
+			response_obj.Avarage = asset.Balance
 			response_obj.Hash = wallet.Hash
 			response_obj.CreatedAt = wallet.CreatedAt
 			response_obj.UpdatedAt = wallet.UpdatedAt
@@ -47,6 +49,10 @@ func WalletInfoTemplate(w http.ResponseWriter, r *http.Request) {
 			response = append(response, response_obj)
 		}
 	} else {
+		response_obj.Symbol = "Empty wallet"
+		response_obj.AssetName = ""
+		response_obj.Balance = 0
+		response_obj.Avarage = 0
 		response_obj.WalletId = wallet.Id
 		response_obj.Hash = wallet.Hash
 		response = append(response, response_obj)
